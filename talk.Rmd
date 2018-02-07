@@ -70,6 +70,10 @@ opts_chunk$set(cache=TRUE, echo=FALSE, message=FALSE, warnings=FALSE, errors=FAL
 <small>Di Cook</small>
 </div>
 
+---
+
+background-size: contain
+background-image: url('images/hipster_nonsense.jpeg')
 
 ---
 
@@ -188,6 +192,8 @@ class: inverse, middle, center
 - check and suggest hints
 - (at Macalester College teaches trig with R)
 
+<div align="center">Demo</div>
+
 ---
 
 # Fast package development (Hester)
@@ -196,6 +202,8 @@ class: inverse, middle, center
 - doesn't have to go on CRAN
 - given how fast development can be, why not?
 - [Jim's demo](https://github.com/jimhester/presentations/tree/master/2018_02_03-You-can-make-a-package-in-20-minutes)
+
+<div align="center">Demo</div>
 
 ---
 
@@ -216,28 +224,6 @@ background-image: url('images/pkg-who.png')
 
 - [switching to tidyverse guide](http://www.significantdigits.org/2017/10/switching-from-base-r-to-tidyverse/)
 - [RStudio cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
-
-
----
-
-# Sample slide
-
-.pull-left[
-- Pull left text
-- Goes here
-]
-
-.pull-right[
-- This is
-- Pulled right
-]
-
----
-
-class: inverse, middle, center
-
-# A big title
-
 
 
 
