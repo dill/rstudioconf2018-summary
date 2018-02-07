@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Things I (we) learnt at RStudio::conf 2018</title>
+    <meta charset="utf-8">
+    <meta name="author" content="David L Miller &amp; Eiren K Jacobson" />
+    <link href="talk_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="talk_files/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="my-theme.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Things I (we) learnt at RStudio::conf 2018
+### David L Miller &amp; Eiren K Jacobson
+
+---
+
+
+
+
+
+# RStudio::conf
+
+- San Diego, CA. 2-3 Feb
+- *Not* an academic conference
+  - Fancy hotel
+  - Fancy snacks &amp; food
+  - Lots of free stuff
+  - Rooftop parties
+  - (Do we really *need* any of that?)
+
+---
+
+# People *really* like hexagonal stickers
+
+![hex stickers](images/hex.png)
+
+---
+
+# Central themes
+
+- "tidyverse"
+  - package ecosystem (more explanation in a moment)
+- TensorFlow
+  - fancy numerical optimisation
+- `shiny`
+  - make wee GUIs for yr code
+- community building for open source projects
+
+---
+
+# okay, but what is "tidyverse"
+
+.pull-left[
+![opinionated](images/opinionated.png)
+
+&lt;small&gt;&lt;a href="https://www.tidyverse.org"&gt;tidyverse.org&lt;/a&gt;&lt;/small&gt;
+]
+
+.pull-right[
+- Each variable is in a column
+- Each observation is a row
+- Each value is a cell
+
+&lt;small&gt;from Di Cook's talk&lt;/small&gt;
+]
+
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;div align="center"&gt;
+&lt;i&gt;"statistics starts once you have tidy data"&lt;/i&gt;
+&lt;br/&gt;
+&lt;small&gt;Di Cook&lt;/small&gt;
+&lt;/div&gt;
+
+
+---
+
+class: inverse, middle, center
+
+# Di Cook plenary
+
+---
+
+# Visual inference
+
+- can we determine p-values from asking humans which plots are different?
+- Lineup protocol: "compare the data plot with null plots of samples where there really is nothing going on"
+- Rorschach protocol: "plot a lot of null samples, to get a sense for what might be seen when there is nothing"
+- null samples by permutation or simulation
+- (not new! Neyman, Scott and Shane, 1953)
+
+
+---
+
+background-size: contain
+background-image: url('images/govt_lineup.png')
+
+---
+
+# Further info
+
+- `nullabor` package
+- Majumder et al (2013) Validation of Visual Statistical Inference, Applied to Linear Models, JASA
+- Hofmann et al (2012) Graphical Tests for Power Comparison of Competing Design, InfoVis
+- [Di's slides](http://www.dicook.org/files/rstudio/)
+
+---
+
+class: inverse, middle, center
+
+# JJ Allaire plenary
+
+---
+
+# TensorFlow
+
+
+.pull-left[
+- high-performance library for numerical optimisation
+  - "flow" comes from making a graph of the computation
+- includes Hamiltonian Monte Carlo via automatic (algorithmic) differentiation
+- lots of hype about "deep learning" **yawn**
+]
+
+.pull-right[
+![tf logo](images/tf.png)
+]
+
+---
+
+# What is cool about TensorFlow?
+
+- AD!
+- Compile to binary (no R needed, incl. for `shiny` apps, [`tfdeploy`](https://tensorflow.rstudio.com/tools/tfdeploy/articles/introduction.html))
+- Don't have to have full model in memory
+- powers [`greta`](https://greta-dev.github.io/greta/)
+
+
+```r
+library(greta)
+
+x &lt;- iris$Petal.Length
+y &lt;- iris$Sepal.Length
+
+int = normal(0, 5)
+coef = normal(0, 3)
+sd = lognormal(0, 3)
+
+mean &lt;- int + coef * x
+distribution(y) = normal(mean, sd)
+
+m &lt;- model(int, coef, sd)
+```
+
+---
+
+background-size: contain
+background-image: url('images/jj-deep.png')
+
+---
+
+background-size: contain
+background-image: url('images/tf-core.png')
+
+---
+
+class: inverse, middle, center
+
+# Shorter talks round-up
+
+---
+
+# Spatial data with `sf`
+
+- `sp` is a *pain*
+- `sf` ("simple features") is the next gen of `sp`
+- simple features
+  - points
+  - lines
+  - polygons
+
+![better table](images/meuse.png)
+
+
+
+---
+
+# `learnr`
+
+---
+
+
+# Fast package development
+
+---
+
+# Further reading
+
+- [RStudio::conf 2018](https://www.rstudio.com/conference/)
+- [YouTube link for 1st day of talks](https://www.youtube.com/watch?v=ogy7rHWlsQ8)
+- [YouTube link for 2nd day of talks](https://www.youtube.com/watch?v=Ol1FjFR2IMU)
+- [RStudio github repo of materials](https://github.com/rstudio/rstudio-conf/tree/master/2018)
+- [Links to all available slides](https://github.com/simecek/RStudioConf2018Slides)
+
+
+- [switching to tidyverse guide](http://www.significantdigits.org/2017/10/switching-from-base-r-to-tidyverse/)
+- [RStudio cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
+
+
+---
+
+# Sample slide
+
+.pull-left[
+- Pull left text
+- Goes here
+]
+
+.pull-right[
+- This is
+- Pulled right
+]
+
+---
+
+class: inverse, middle, center
+
+# A big title
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

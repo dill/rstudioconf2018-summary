@@ -1,0 +1,244 @@
+---
+title: "Things I (we) learnt at RStudio::conf 2018"
+author: David L Miller \& Eiren K Jacobson
+output:
+  xaringan::moon_reader:
+    nature:
+      highlightStyle: github
+      highlightLines: true
+css: my-theme.css
+---
+
+
+```{r include=FALSE}
+library(knitr)
+# make sure that we cache results and don't print code by default
+opts_chunk$set(cache=TRUE, echo=FALSE, message=FALSE, warnings=FALSE, errors=FALSE)
+```
+
+# RStudio::conf
+
+- San Diego, CA. 2-3 Feb
+- *Not* an academic conference
+  - Fancy hotel
+  - Fancy snacks & food
+  - Lots of free stuff
+  - Rooftop parties
+  - (Do we really *need* any of that?)
+
+---
+
+# People *really* like hexagonal stickers
+
+![hex stickers](images/hex.png)
+
+---
+
+# Central themes
+
+- "tidyverse"
+  - package ecosystem (more explanation in a moment)
+- TensorFlow
+  - fancy numerical optimisation
+- `shiny`
+  - make wee GUIs for yr code
+- community building for open source projects
+
+---
+
+# okay, but what is "tidyverse"
+
+.pull-left[
+![opinionated](images/opinionated.png)
+
+<small><a href="https://www.tidyverse.org">tidyverse.org</a></small>
+]
+
+.pull-right[
+- Each variable is in a column
+- Each observation is a row
+- Each value is a cell
+
+<small>from Di Cook's talk</small>
+]
+
+<br/>
+<br/>
+<div align="center">
+<i>"statistics starts once you have tidy data"</i>
+<br/>
+<small>Di Cook</small>
+</div>
+
+
+---
+
+class: inverse, middle, center
+
+# Di Cook plenary
+
+---
+
+# Visual inference
+
+- can we determine p-values from asking humans which plots are different?
+- Lineup protocol: "compare the data plot with null plots of samples where there really is nothing going on"
+- Rorschach protocol: "plot a lot of null samples, to get a sense for what might be seen when there is nothing"
+- null samples by permutation or simulation
+- (not new! Neyman, Scott and Shane, 1953)
+
+
+---
+
+background-size: contain
+background-image: url('images/govt_lineup.png')
+
+---
+
+# Further info
+
+- `nullabor` package
+- Majumder et al (2013) Validation of Visual Statistical Inference, Applied to Linear Models, JASA
+- Hofmann et al (2012) Graphical Tests for Power Comparison of Competing Design, InfoVis
+- [Di's slides](http://www.dicook.org/files/rstudio/)
+
+---
+
+class: inverse, middle, center
+
+# JJ Allaire plenary
+
+---
+
+# TensorFlow
+
+
+.pull-left[
+- high-performance library for numerical optimisation
+  - "flow" comes from making a graph of the computation
+- includes Hamiltonian Monte Carlo via automatic (algorithmic) differentiation
+- lots of hype about "deep learning" **yawn**
+]
+
+.pull-right[
+![tf logo](images/tf.png)
+]
+
+---
+
+# What is cool about TensorFlow?
+
+- AD!
+- Compile to binary (no R needed, incl. for `shiny` apps, [`tfdeploy`](https://tensorflow.rstudio.com/tools/tfdeploy/articles/introduction.html))
+- Don't have to have full model in memory
+- powers [`greta`](https://greta-dev.github.io/greta/)
+
+```{r, eval=FALSE, echo=TRUE}
+library(greta)
+
+x <- iris$Petal.Length
+y <- iris$Sepal.Length
+
+int = normal(0, 5)
+coef = normal(0, 3)
+sd = lognormal(0, 3)
+
+mean <- int + coef * x
+distribution(y) = normal(mean, sd)
+
+m <- model(int, coef, sd)
+```
+
+---
+
+background-size: contain
+background-image: url('images/jj-deep.png')
+
+---
+
+background-size: contain
+background-image: url('images/tf-core.png')
+
+---
+
+class: inverse, middle, center
+
+# Shorter talks round-up
+
+---
+
+# Spatial data with `sf` (Pedesma)
+
+- `sp` is a *pain*
+- `sf` ("simple features") is the next gen of `sp`
+- simple features are:
+  - points
+  - lines
+  - polygons
+
+![better table](images/meuse.png)
+
+---
+
+# Teaching with R (Kaplan)
+
+- Use `learnr` + [`checkr`](https://github.com/dtkaplan/checkr) + ...
+- Make interactive assignments
+- log what students do and *analyse*
+- check and suggest hints
+- (at Macalester College teaches trig with R)
+
+---
+
+# Fast package development (Hester)
+
+- `devtools`, `usethis` for quick package development
+- doesn't have to go on CRAN
+- given how fast development can be, why not?
+- [Jim's demo](https://github.com/jimhester/presentations/tree/master/2018_02_03-You-can-make-a-package-in-20-minutes)
+
+---
+
+background-size: contain
+background-image: url('images/pkg-who.png')
+
+---
+
+
+# Further reading
+
+- [RStudio::conf 2018](https://www.rstudio.com/conference/)
+- [YouTube link for 1st day of talks](https://www.youtube.com/watch?v=ogy7rHWlsQ8)
+- [YouTube link for 2nd day of talks](https://www.youtube.com/watch?v=Ol1FjFR2IMU)
+- [RStudio github repo of materials](https://github.com/rstudio/rstudio-conf/tree/master/2018)
+- [Links to all available slides](https://github.com/simecek/RStudioConf2018Slides)
+
+
+- [switching to tidyverse guide](http://www.significantdigits.org/2017/10/switching-from-base-r-to-tidyverse/)
+- [RStudio cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
+
+
+---
+
+# Sample slide
+
+.pull-left[
+- Pull left text
+- Goes here
+]
+
+.pull-right[
+- This is
+- Pulled right
+]
+
+---
+
+class: inverse, middle, center
+
+# A big title
+
+
+
+
+
