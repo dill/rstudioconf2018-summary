@@ -21,23 +21,24 @@ opts_chunk$set(cache=TRUE, echo=FALSE, message=FALSE, warnings=FALSE, errors=FAL
 - San Diego, CA. 2-3 Feb
 - *Not* an academic conference
   - Fancy hotel
-  - Fancy snacks & food
-  - Lots of free stuff
-  - Rooftop parties
+  - Breakfast, lunch, and snacks provided
+  - Rooftop party with open bar
   - (Do we really *need* any of that?)
-
+  - Substantial industry presence (e.g., data scientists from Fannie Mae, CarFax, Etsy)
+- SO MANY UNREADABLE SLIDES (kinda like this presentation?)
+- Mostly (70%) men (also like this presentation)
 ---
 
 # People *really* like hexagonal stickers
 
-![hex stickers](images/hex.png)
+![hex stickers](images/hex_pokemon.png)
 
 ---
 
 # Central themes
 
 - "tidyverse"
-  - package ecosystem (more explanation in a moment)
+  - package ecosystem/cult? (more explanation in a moment)
 - TensorFlow
   - fancy numerical optimisation
 - `shiny`
@@ -90,7 +91,9 @@ class: inverse, middle, center
 - Rorschach protocol: "plot a lot of null samples, to get a sense for what might be seen when there is nothing"
 - null samples by permutation or simulation
 - (not new! Neyman, Scott and Shane, 1953)
-
+- Can support "practical significance" 
+  - with large datasets, statistical significance (p < 0.05) is possible with very small effects sizes (e.g., c-section babies in Australia)
+  - visual inference can help prevent meaningless significance
 
 ---
 
@@ -116,9 +119,9 @@ class: inverse, middle, center
 
 # TensorFlow
 
-
 .pull-left[
 - high-performance library for numerical optimisation
+  - tensors are arrays
   - "flow" comes from making a graph of the computation
 - includes Hamiltonian Monte Carlo via automatic (algorithmic) differentiation
 - lots of hype about "deep learning" **yawn**
@@ -171,14 +174,16 @@ class: inverse, middle, center
 
 ---
 
-# Spatial data with `sf` (Pedesma)
+# Spatial data with `sf` (Pebesma)
 
 - `sp` is a *pain*
 - `sf` ("simple features") is the next gen of `sp`
-- simple features are:
-  - points
-  - lines
-  - polygons
+- there are 17 simple features, including points, lines, and polygons
+- manipulation consistent with tidyverse (sf methods are "sticky")
+  - easy conversion between units
+- dev version of geom_sf() available
+- see https://cran.r-project.org/web/packages/sf/vignettes/sf1.html
+
 
 ![better table](images/meuse.png)
 
@@ -193,6 +198,8 @@ class: inverse, middle, center
 - (at Macalester College teaches trig with R)
 
 <div align="center">Demo</div>
+
+- See also: Robinson, [teach the tidyverse to beginners]( http://varianceexplained.org/r/teach-tidyverse/)
 
 ---
 
