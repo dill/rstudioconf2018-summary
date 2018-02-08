@@ -180,22 +180,22 @@ class: inverse, middle, center
 
 ---
 
-# Spatial data with `sf` (Pebesma)
+# Spatial data with `sf` (Edzer Pebesma)
 
 - `sp` is a *pain*
 - `sf` ("simple features") is the next gen of `sp`
 - there are 17 simple features, including points, lines, and polygons
 - manipulation consistent with tidyverse (sf methods are "sticky")
   - easy conversion between units
-- dev version of geom_sf() available
-- see https://cran.r-project.org/web/packages/sf/vignettes/sf1.html
+- Dev. version of [`geom_sf()`](http://ggplot2.tidyverse.org/reference/ggsf.html) available
+- [Vignettes](https://cran.r-project.org/web/packages/sf/vignettes/sf1.html)
 
 
 ![better table](images/meuse.png)
 
 ---
 
-# Teaching with R (Kaplan)
+# Teaching with R (Daniel Kaplan)
 
 - Use `learnr` + [`checkr`](https://github.com/dtkaplan/checkr) + ...
 - Make interactive assignments
@@ -209,7 +209,7 @@ class: inverse, middle, center
 
 ---
 
-# Fast package development (Hester)
+# Fast package development (Jim Hester)
 
 - `devtools`, `usethis` for quick package development
 - doesn't have to go on CRAN
@@ -222,6 +222,31 @@ class: inverse, middle, center
 
 background-size: contain
 background-image: url('images/pkg-who.png')
+
+---
+
+
+# Useful functions from the lesser known tidyverse (Emily Robinson, Jenny Bryan)
+
+- `dplyr::na_if()` to convert annoying values to NAs
+- `skmir::skim()` to look at summary stats for dfs/tbls
+- `forcats::fct_reorder()` to reorder factors by sorting on another var
+- `tibble::tribble()` for creating toy datasets
+- `reprex::reprex()` for reproducible examples
+- `purr::map()` for selecting elements of lists
+
+---
+
+# Time-series analysis (Davis Vaughan)
+
+- Goal: time-indexed tibble compatible with tidyverse
+- `tibbletime::tbl_time(df, index = Date)`
+- `tibbletime::filter_time` to easily filter for date-time range
+![filter](images/filter_time.png)
+- `tibbletime::collapse_by()` to summarise records by e.g., 2-hr periods
+![collapse](images/collapse_by.png)
+- `tibbletime::rollify()` for rolling averages (or any other function)
+
 
 ---
 
