@@ -26,8 +26,7 @@ opts_chunk$set(cache=TRUE, echo=FALSE, message=FALSE, warnings=FALSE, errors=FAL
   - Rooftop party with open bar
   - (Do we really *need* any of that?)
   - Substantial industry presence (e.g., data scientists from Fannie Mae, CarFax, Etsy)
-- SO MANY UNREADABLE SLIDES (kinda like this presentation?)
-- Mostly (70%) men (also like this presentation)
+- Mostly (70%) men (kinda like this presentation?)
 ---
 
 # People *really* like hexagonal stickers
@@ -87,14 +86,25 @@ class: inverse, middle, center
 
 # Visual inference
 
+.pull-left[
 - can we determine p-values from asking humans which plots are different?
-- Lineup protocol: "compare the data plot with null plots of samples where there really is nothing going on"
-- Rorschach protocol: "plot a lot of null samples, to get a sense for what might be seen when there is nothing"
-- null samples by permutation or simulation
-- (not new! Neyman, Scott and Shane, 1953)
-- Can support "practical significance" 
-  - with large datasets, statistical significance (p < 0.05) is possible with very small effects sizes (e.g., c-section babies in Australia)
+- "practical significance"
+  - with large datasets, significance possible with very small effects sizes (e.g., c-section babies in Australia)
   - visual inference can help prevent meaningless significance
+]
+
+.pull-right[
+<img src="images/neyman-galaxy.png">
+]
+
+
+---
+
+# Protocols
+
+- Lineup protocol: *"compare the data plot with null plots of samples where there really is nothing going on"*
+- Rorschach protocol: *"plot a lot of null samples, to get a sense for what might be seen when there is nothing"*
+- null samples by permutation or simulation
 
 ---
 
@@ -103,11 +113,24 @@ background-image: url('images/govt_lineup.png')
 
 ---
 
+# Not a new idea(!)
+
+.pull-left[
+- [Neyman, Scott and Shane (1953)](http://adsabs.harvard.edu/full/1953ApJ...117...92N)
+]
+
+.pull-right[
+<img src="images/neyman-galaxy.png">
+]
+
+
+---
+
 # Further info
 
 - `nullabor` package
-- Majumder et al (2013) Validation of Visual Statistical Inference, Applied to Linear Models, JASA
-- Hofmann et al (2012) Graphical Tests for Power Comparison of Competing Design, InfoVis
+- Majumder et al (2013) *Validation of Visual Statistical Inference, Applied to Linear Models*, JASA
+- Hofmann et al (2012) *Graphical Tests for Power Comparison of Competing Design*, InfoVis
 - [Di's slides](http://www.dicook.org/files/rstudio/)
 
 ---
@@ -179,8 +202,8 @@ class: inverse, middle, center
 
 - `sp` is a *pain*
 - `sf` ("simple features") is the next gen of `sp`
-- there are 17 simple features, including points, lines, and polygons
-- manipulation consistent with tidyverse (sf methods are "sticky")
+- 17 "simple features", including points, lines, and polygons
+- manipulation consistent with tidyverse (`sf` methods are "sticky")
   - easy conversion between units
 - Dev. version of [`geom_sf()`](http://ggplot2.tidyverse.org/reference/ggsf.html) available
 - [Vignettes](https://cran.r-project.org/web/packages/sf/vignettes/sf1.html)
